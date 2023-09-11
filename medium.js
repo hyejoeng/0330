@@ -1,16 +1,9 @@
 // 짝수 요소만 반환하는 함수
 function getEvenNumbers(arr) {
-    // const arr2 = arr.filter(function(arr) {
-    //     return arr % 2 === 0
-    // })
-    // console.log(arr2)
-    
-    // const arr3 = [arr]
-    // for(let i = 0; i < arr.length; i++) {
-    //     if (arr % 2 === 0){
-    //         return arr = arr3
-    //     }
-    // }
+    const arr2 = arr.filter(function(arr) {
+        return arr % 2 === 0
+    })
+    return arr2
 }
 console.log(getEvenNumbers([1, 2, 3, 4, 5, 6])); // 2, 4, 6
 
