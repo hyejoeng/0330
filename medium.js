@@ -24,14 +24,10 @@ console.log(getMaxNumber([1, 7, 3, 5, 10, 4])); // 10
 // 배열에서 특정 요소의 개수를 구하는 함수
 // filter 메소드를 사용하여 주어진 배열에서 특정 요소의 개수를 반환하는 함수를 작성
 function countOccurrences(arr, element) {
-    // const arr4 = arr.filter(element => 'arr' === element).length 
+    const arr4 = arr.filter(arr => element === arr).length
+    return arr4
 }
 console.log(countOccurrences([1, 2, 3, 2, 4, 2, 5], 2)); // 3
-
-// const newArr = arr.filter(function(element, index, array) {
-//     // 조건을 만족하면 true, 아니면 false 반환
-//     return condition;
-// });
 
 
 // 모든 요소를 대문자로 변경하는 함수
