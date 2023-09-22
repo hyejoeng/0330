@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>week3-2</title>
+</head>
+<body>
+    <h2>-문제 1-</h2>
+    <div>
+        <button onclick="addListItem()" id="addBtn">추가</button>
+        <ul id="itemList">
+            <!-- <li>아이템 1</li>
+            <li>아이템 2</li>
+            <li>아이템 3</li> -->
+        </ul>
+    </div>
+
+    <h2>-문제 2-</h2>
+    <div>
+        <button id="changeBtn" onclick="changeText()">텍스트 변경</button>
+        <div id="textContainer">Hello, World!</div>
+    </div>    
+    
+    <h2>-문제 3-</h2>
+    <div>
+        <button onclick="onClick1()" id="btn1">버튼 1</button>
+        <button onclick="onClick2()" id="btn2">버튼 2</button>
+        <button onclick="onClick3()" id="btn3">버튼 3</button>
+        <div id="displayArea"></div>
+    </div>    
+    
+    <h2>-문제 4-</h2>
+    <div>
+        <label for="numberInput">숫자 입력: </label>
+        <input type="text" id="numberInput" />
+        <button id="analyzeBtn" onclick="analyzeNumber()">분석</button>
+        <div id="resultContainer"></div>
+    </div>
+
+    <h2>-문제 5-</h2>
+    <div id="timeContainer"></div>
+    
+    <h2>-문제 6-</h2>
+    <div id="buttonContainer">
+        <button data-color="red">Red</button>
+        <button data-color="green">Green</button>
+        <button data-color="blue">Blue</button>
+    </div>
+    <div id="coloredBox" style="width: 200px; height: 100px; background-color: white;"></div>
+    
+    <h2>-문제 7-</h2>
+    <!-- 
+        // 이벤트 위임을 사용하여 테이블의 각 행 클릭 처리하기
+        // - 테이블의 각 행을 클릭하면, 해당 행의 데이터가 출력되어야 합니다. 출력된 정보는 id가 "displayArea"인 div 요소에 표시되어야 합니다.
+        // - 이벤트 리스너는 테이블의 부모 요소인 div에 추가되어야 합니다. 이벤트 위임을 사용하여 각 행에 대해 서로 다른 동작이 수행되어야 합니다.
+        document.getElementById("tableContainer").addEventListener("click", displayRowData);
+
+        function displayRowData(e) {
+            // 코드 작성
+        }
+     -->
+    <div id="tableContainer">
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Gender</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Alice</td>
+					<td>Female</td>
+				</tr>
+				<tr>
+					<td>2</td>
+					<td>Bob</td>
+					<td>Male</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="displayArea"></div>
+
+    <h2>-문제 8-</h2>
+    <div>
+        <label for="todoInput">할 일: </label>
+        <input type="text" id="todoInput" />
+        <button id="addTodoBtn">추가</button>
+    </div>
+    <ul id="todoList">
+        <!-- <li>
+            <span>할 일 1</span>
+            <button>삭제</button>
+        </li>
+        <li>
+            <span>할 일 2</span>
+            <button>삭제</button>
+        </li> -->
+    </ul>
+    
+    <h2>-문제 9-</h2>
+    <form id="myForm">
+        <input type="text" id="username" placeholder="username" />
+        <input type="password" id="password" placeholder="password" />
+        <button type="submit">Submit</button>
+    </form>
+
+        
+    <script src="script/week3-2.js"></script>
+</body>
+</html>
+<!-- 
+Date.prototype.setDate()
+현지 시간 기준으로 일을 설정합니다.
+
+Date.prototype.setFullYear()
+현지 시간 기준으로 연도(네 자리 연도면 네 자리로)를 설정합니다.
+
+Date.prototype.setHours()
+현지 시간 기준으로 시를 설정합니다.
+
+Date.prototype.setMilliseconds()
+현지 시간 기준으로 밀리초를 설정합니다.
+
+Date.prototype.setMinutes()
+현지 시간 기준으로 분을 설정합니다.
+
+Date.prototype.setMonth()
+현지 시간 기준으로 월을 설정합니다.
+
+Date.prototype.setSeconds()
+현지 시간 기준으로 초를 설정합니다.
+
+Date.prototype.setTime()
+Date가 나타낼 시간을 1970년 1월 1일 00:00:00 UTC로부터의 경과시간(밀리초)으로 설정합니다. 기준 이전의 시간은 음수 값을 사용해 설정할 수 있습니다.
+
+Date.prototype.setUTCDate()
+국제 시간 기준으로 일을 설정합니다.
+
+Date.prototype.setUTCFullYear()
+국제 시간 기준으로 연도(네 자리 연도면 네 자리로)를 설정합니다.
+
+Date.prototype.setUTCHours()
+국제 시간 기준으로 시를 설정합니다.
+
+Date.prototype.setUTCMilliseconds()
+국제 시간 기준으로 밀리초를 설정합니다.
+
+Date.prototype.setUTCMinutes()
+국제 시간 기준으로 분을 설정합니다.
+
+Date.prototype.setUTCMonth()
+국제 시간 기준으로 월을 설정합니다.
+
+Date.prototype.setUTCSeconds()
+국제 시간 기준으로 초를 설정합니다 -->
