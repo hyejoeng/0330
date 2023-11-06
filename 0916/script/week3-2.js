@@ -2,17 +2,6 @@
 // - HTML에서 id가 "addBtn"인 버튼 요소를 클릭하면 "아이템 (n)"라는 텍스트를 가진 새로운 리스트 아이템을 id가 "itemList"인 ul 요소에 추가하세요.
 // - addListItem 함수를 작성하세요, 이 함수는 이벤트 리스너와 연결되어서 버튼 클릭 시 동작됩니다.
 
-// const addBtn = document.querySelector('#addBtn')
-// let itemCount = 1
-
-// addBtn.addEventListener('click', () => {
-//     let itemList = document.querySelector('#itemList')
-//     let newLi = document.createElement('li')
-//     itemList.appendChild(newLi)
-//     newLi.innerHTML = `아이템 ${itemCount}`
-//     itemCount++
-// })
-
 let itemCount = 1
 function addListItem() {
     let itemList = document.querySelector('#itemList')
@@ -34,7 +23,6 @@ function addListItem() {
 // - HTML에서 id가 "changeBtn"인 버튼 요소를 클릭하면, id가 "textContainer"인 div 요소의 텍스트가 "Hello, World!"에서 "Hello, JavaScript!"로 변경되어야 합니다.
 // - changeText 함수를 작성하세요, 이 함수는 이벤트 리스너와 연결되어서 버튼 클릭 시 동작됩니다.
 function changeText() {
-	// const changeBtn = document.querySelector('#changeBtn')
     const textContainer = document.querySelector('#textContainer')
 
     textContainer.innerHTML = `Hello, JavaScript!`
@@ -106,11 +94,6 @@ function displayCurrentTime() {
     timeContainer.innerHTML = new Date(dateUTC)
 }
 
-// const date = new Date()
-// const dateUTC = Date.UTC (
-//     date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours(), date.getUTCMinutes(), date.getUTCSeconds()
-// )
-// console.log(new Date(dateUTC))
 
 
 // 이벤트 위임을 사용하여 여러 버튼 클릭 처리하기
@@ -143,23 +126,18 @@ let toDolistCount = 1
 
 function addTodo() {
     const inputValue = document.querySelector('#todoInput').value //input 값 추출
-
-    // const todoList = document.querySelector('#todoList')
     
     let newItem = document.createElement('li')
     let newSpan = document.createElement('span')
     let newButton = document.createElement('button')
 
     newItem.appendChild(newSpan)
-    newItem.appendChild( newButton)
+    newItem.appendChild(newButton)
 
-    // newSpan.innerHTML = inputValue
     newButton.innerHTML = `삭제`
     newButton.setAttribute('style', 'margin-left: 6px')
-    // // newButton.setAttribute('')
 
     todoList.appendChild(newItem)        
-
     
     if (inputValue) { //입력 값이 비어 있지 않다면
         newSpan.innerHTML = inputValue
@@ -169,67 +147,41 @@ function addTodo() {
     }
 }
 function deleteTodo(e) {
-    // const todoli = document.querySelectorAll('#todoList > li')
-    // const deleteBtn = todoli.querySelector('button')
+    const clickD = e.target
 
-    let clickD = e.target
-    let deleteBtn = clickD.getAttribute('button')
-
-    if (deleteBtn) {
-        deleteBtn.removeEventListener('click')
+    if (clickD.tagName === 'BUTTON') {
+        clickD.removeEventListener('click', addTodo)
+        let listItem = clickD.parentElement;
+        listItem.remove(); // 부모 요소 삭제
+        console.log(`냐뮤`)
     }
 }
 
-// // <li> 요소들을 선택합니다.
-// var listItems = document.querySelectorAll("#myList li");
-
-// // 각 <li> 요소에 대해 <button> 요소를 선택하고 이벤트 리스너를 추가합니다.
-// listItems.forEach(function(li) {
-//     var button = li.querySelector("button");
-
-//     if (button) {
-//         // <button> 요소를 찾았을 경우에만 이벤트 리스너를 추가합니다.
-//         button.addEventListener("click", function() {
-//             // 버튼이 클릭되었을 때 할 작업을 여기에 작성합니다.
-//             alert("버튼이 클릭되었습니다.");
-//         });
-//     }
-// });
 
 
-// 이벤트 제거 removeEventListener 
-// // 버튼 요소를 가져옵니다.
-// var checkButton = document.getElementById("checkButton");
+document.getElementById("tableContainer").addEventListener("click", displayRowData);
 
-// // 확인 버튼에 클릭 이벤트 리스너를 추가합니다.
-// checkButton.addEventListener("click", function() {
-//     // 입력 필드의 값을 가져옵니다.
-//     var inputValue = document.getElementById("myInput").value;
+function displayRowData(e) {
+    console.log(`냐뮤`)
+    // 클릭된 요소 확인
+    const clickedElement = e.target;
 
-//     // 입력 값이 비어있지 않다면 작업을 수행합니다.
-//     if (inputValue) {
-//         alert("입력된 값: " + inputValue);
-//         // 여기서 원하는 작업을 수행합니다.
-//     } else {
-//         alert("입력된 값이 없습니다.");
-//     }
-// });
+    // 클릭된 요소가 테이블의 행인지 확인
+    if (clickedElement.tagName === "TR") {
+        // 테이블 행에서 데이터를 가져오는 방법 (예를 들어, 첫 번째 셀의 텍스트를 가져옴)
+        const rowData = clickedElement.cells[0].textContent;
 
+        // 결과를 표시할 요소 가져오기
+        const displayArea = document.getElementById("displayArea");
 
-// 변수.setAttribute('속성', '값')
-
-// let itemList = document.querySelector('#itemList')
-
-// let newLi = document.createElement('li') // 새로운 요소 추가
-
-// itemList.appendChild(newLi) //부모 태그 내부에 넣음
-
-// newLi.innerHTML = `아이템 ${itemCount}`//태그 사이에 들어갈 내용
-
-// itemCount++
+        // 결과를 출력
+        displayArea.textContent = `선택한 행의 데이터: ${rowData}`;
+    }
+}
 
 
 
-// e.preventDefault()를 사용하여 form 제출 시, 동작 실행되지 않도록 구현하기
+
+//  e.preventDefault()를 사용하여 form 제출 시, 동작 실행되지 않도록 구현하기
 // - 사용자가 form을 제출하면 기본 동작이 실행되지 않도록 e.preventDefault()를 사용하여 함수를 작성해주세요.
 // - form을 제출하면 사용자 이름과 비밀번호 입력 값이 콘솔에 출력되도록 하세요.
